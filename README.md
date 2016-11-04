@@ -30,15 +30,23 @@ An API method exists to signup a user. Use Postman to create a user with a POST 
 
 This should create a new user in the database on laradock_mysql_1:
 
-``mysql> select * from users\G
-*************************** 1. row ***************************
-                id: 1
-              name: karl
-          password: $2y$10$ubMOc9dVNbr8f0/HRnC/g.TVxexHlkk54DuaGolv2poPPRlMtdA2a
-secret_information: eyJpdiI6IlhGMEN6cXVQUFhtalpIUXdOcldXaUE9PSIsInZhbHVlIjoiNWZ2ektxXC92V0FqTEwzUVwvYmpFZlpnPT0iLCJtYWMiOiI0NjFiNmNjNjBjNjY3MzljOWRmYzM4NWIzNTBhZmY1ZTJkOTVmYTk0ZjA1ODA1N2U5N2EzNzAyM2JkZjEwOGI0In0=
-    remember_token: NULL
-        created_at: 2016-11-04 01:58:49
-        updated_at: 2016-11-04 01:58:49``
+`` mysql> select * from users\G
+
+ *************************** 1. row ***************************
+
+                 id: 1
+
+               name: karl
+
+           password: $2y$10$ubMOc9dVNbr8f0/HRnC/g.TVxexHlkk54DuaGolv2poPPRlMtdA2a
+
+ secret_information: eyJpdiI6IlhGMEN6cXVQUFhtalpIUXdOcldXaUE9PSIsInZhbHVlIjoiNWZ2ektxXC92V0FqTEwzUVwvYmpFZlpnPT0iLCJtYWMiOiI0NjFiNmNjNjBjNjY3MzljOWRmYzM4NWIzNTBhZmY1ZTJkOTVmYTk0ZjA1ODA1N2U5N2EzNzAyM2JkZjEwOGI0In0=
+
+     remember_token: NULL
+
+         created_at: 2016-11-04 01:58:49
+
+         updated_at: 2016-11-04 01:58:49``
 
 You should also get back a JWT for use in subsequent requests:
 
