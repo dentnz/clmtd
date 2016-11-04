@@ -126,7 +126,8 @@ bootstrap/cache/
 storage/
 .env.*.php
 .env.php
-.env
+# Note I want to check in this .env file for prototyping purposes
+#.env
 
 # Rocketeer PHP task runner and deployment package. https://github.com/rocketeers/rocketeer
 .rocketeer/
