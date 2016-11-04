@@ -11,11 +11,12 @@ cd laradock
 docker-compose up -d
 ```
 
-- You probably need to do a database migration for Laravel.
+- You probably need to do a Laravel install and database migrate.
 
 ```sh
 docker exec -ti laradock_workspace_1 bash
 cd api
+composer install
 php artisan migrate
 ```
 
