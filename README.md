@@ -1,4 +1,4 @@
-#Technical Director Test - Karl Lurman
+#TD Test - Karl Lurman
 
 ## Installation
 
