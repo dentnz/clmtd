@@ -6,14 +6,14 @@
 - Git clone the entire repo to your local machine
 - Bring up the environment:
 
-``cd laradock
-docker-compose up -d``
+``cd laradock``
+``docker-compose up -d``
 
 - You probably need to do a database migration for Laravel.
 
-``docker exec -ti laradock_workspace_1 bash
-cd api
-php artisan migrate``
+``docker exec -ti laradock_workspace_1 bash``
+``cd api``
+``php artisan migrate``
 
 - app/clm-api folder in the repo contains the Laravel API
 - app/clm-frontend folder in the repo contains the static frontend folder
