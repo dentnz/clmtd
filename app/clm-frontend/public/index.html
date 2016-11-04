@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+<head>
+	<title>Technical Director Test - Karl Lurman</title>
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+</head>
+<body>
+<h1>Login</h1>
+<form id="login">
+	<label>Name</label><input name="name" type="text"><br />
+	<label>Password</label><input name="password" type="password"><br />
+	<input type="button" value="Submit" onclick="login()">
+	<div id="loginJwt"></div>
+	<div id="loginResponse"></div>
+</form>
+<h1>Signup</h1>
+<form id="signup">
+	<label>Name</label><input name="name" type="text"><br />
+	<label>Password</label><input name="password" type="password"><br />
+	<label>secret_information</label><input name="secret_information" type="text"><br />
+	<input type="button" value="Submit" onclick="signup()">
+	<div id="signupJwt"></div>
+</form>
+
+<script type="text/javascript">
+
+function signup() {
+	console.log('signup');
+	$.ajax({
+        url : "http://localhost:8080/api/auth/signup",
+        dataType : 'json',
+        method: 'POST',
+        data : $('#signup').serialize(),
+        success : function(data) {
+        	$('#signupJwt').html(data.token);
+        },
+        error : function(jqXHR, textStatus, errorThrown) {
+            alert("error");
+        }
+    });
+}
+
+function login() {
+	console.log('login');
+
+	$.ajax({
+        url : "http://localhost:8080/api/auth/login",
+        dataType : 'json',
+        method: 'POST',
+        data : $('#login').serialize(),
+        success : function(data) {
+            getUser(data.token);
+        },
+        error : function(jqXHR, textStatus, errorThrown) {
+            alert("error");
+        }
+    });
+}
+
+function getUser(jwt) {
+	console.log('getUser');
+
+	$('#loginResponse').html('');
+
+	$.ajax({
+        url : "http://localhost:8080/api/user",
+        dataType : 'json',
+        data : {'token': jwt},
+        success : function(data) {
+        	console.log(data);
+            $('#loginResponse').html('Secret Information: ' + data.user.secret_information);
+        },
+        error : function(jqXHR, textStatus, errorThrown) {
+            alert("error");
+        }
+    });	
+}
+
+</script>
+</body>
+</html>
