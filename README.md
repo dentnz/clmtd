@@ -7,12 +7,15 @@
 - Bring up the environment:
 
 ``cd laradock``
+
 ``docker-compose up -d``
 
 - You probably need to do a database migration for Laravel.
 
 ``docker exec -ti laradock_workspace_1 bash``
+
 ``cd api``
+
 ``php artisan migrate``
 
 - app/clm-api folder in the repo contains the Laravel API
